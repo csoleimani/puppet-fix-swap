@@ -26,4 +26,5 @@
 #   }
 # Learn more at: https://puppet.com/docs/bolt/latest/task_metadata.html
 #
-swapoff -a && swapon -a
+swapoff -a;
+swapon -a
