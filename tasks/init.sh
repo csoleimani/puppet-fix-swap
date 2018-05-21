@@ -29,6 +29,8 @@
 if [ `free | grep Swap | awk '{print $3}'` -lt `free | grep Mem | awk '{print $4}'` ]; then
   swapoff -a;
   swapon -a 
+  echo "Swap usage set back to 0"
+  exit 0
 else
   echo "Not enough memory to free swap."
   exit 1
