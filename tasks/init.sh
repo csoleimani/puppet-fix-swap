@@ -26,5 +26,10 @@
 #   }
 # Learn more at: https://puppet.com/docs/bolt/latest/task_metadata.html
 #
-swapoff -a;
-swapon -a
+if [ `free | grep Swap | awk '{print $3}'` -lt `free | grep Mem | awk '{print $4}'` ]; then
+  swapoff -a;
+  swapon -a 
+else
+  echo "Not enough memory to free swap."
+  exit 1
+fi
